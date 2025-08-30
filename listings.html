@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Listings — Aqua Real Estate</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="/">Aqua Real Estate</a>
+      <a href="/listings.html">Listings</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Listings</h1>
+    <p class="muted">Live IDX coming soon. For now, browse curated areas or jump to the NWMLS portal.</p>
+
+    <div class="card">
+      <div class="row" style="justify-content:space-between;align-items:flex-end">
+        <div>
+          <label>Area
+            <select id="area">
+              <option value="Bellevue">Bellevue</option>
+              <option value="Sammamish">Sammamish</option>
+              <option value="Redmond">Redmond</option>
+              <option value="Issaquah">Issaquah</option>
+            </select>
+          </label>
+          <label style="margin-left:8px">Max Price
+            <input id="max" type="number" value="1200000">
+          </label>
+        </div>
+        <button id="go">Open NWMLS Search</button>
+      </div>
+    </div>
+
+    <h2 class="muted" style="margin-top:16px">Featured Areas</h2>
+    <div class="grid">
+      <div class="listing">
+        <div class="badge">Bellevue</div>
+        <h3>Bellevue — Schools & Conveniences</h3>
+        <p>Downtown towers, quiet cul-de-sacs, top schools.</p>
+        <a href="#" onclick="openPortal('Bellevue', 1500000)">Search Bellevue →</a>
+      </div>
+      <div class="listing">
+        <div class="badge">Sammamish</div>
+        <h3>Sammamish — Parks & Space</h3>
+        <p>Lakes, trails, and larger homes on the plateau.</p>
+        <a href="#" onclick="openPortal('Sammamish', 1200000)">Search Sammamish →</a>
+      </div>
+      <div class="listing">
+        <div class="badge">Redmond</div>
+        <h3>Redmond — Tech & Trails</h3>
+        <p>Microsoft HQ, Marymoor Park, light rail coming.</p>
+        <a href="#" onclick="openPortal('Redmond', 1300000)">Search Redmond →</a>
+      </div>
+    </div>
+
+    <footer>© <span id="year"></span> Aqua Real Estate · Bellevue, WA</footer>
+  </main>
+
+  <script>
+    function openPortal(area, max){
+      // Replace URL with your preferred public search link or your future NWMLS portal link
+      const url = `https://www.redfin.com/city/16039/WA/${encodeURIComponent(area)}?market=seattle&max_price=${max}`;
+      window.open(url, '_blank');
+    }
+    document.getElementById('go').addEventListener('click', ()=>{
+      const area = document.getElementById('area').value;
+      const max = Number(document.getElementById('max').value) || '';
+      openPortal(area, max || 1200000);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
