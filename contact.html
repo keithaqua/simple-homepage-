@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Aqua Real Estate</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="/">Aqua Real Estate</a>
+      <a href="/listings.html">Listings</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Contact</h1>
+    <div class="card">
+      <form action="https://formspree.io/f/your-id" method="POST">
+        <p><input name="name" placeholder="Your name" required></p>
+        <p><input name="email" type="email" placeholder="Email" required></p>
+        <p><textarea name="message" placeholder="What are you looking for?" rows="5" required style="width:100%"></textarea></p>
+        <button type="submit">Send</button>
+      </form>
+      <p class="muted" style="margin-top:8px">Prefer texting or a call? (425) 555-0123 · Bellevue, WA</p>
+    </div>
+    <footer>© <span id="year"></span> Aqua Real Estate · Bellevue, WA</footer>
+  </main>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
